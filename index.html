@@ -1,0 +1,815 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MISIÓN 1938 | México en transformación</title>
+
+<style>
+:root {
+    --azul: #17324d;
+    --crema: #f7f1e5;
+    --papel: #fffaf0;
+    --rojo: #a83d35;
+    --verde: #47745d;
+    --dorado: #d5a84f;
+    --texto: #243342;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--crema);
+    color: var(--texto);
+    font-family: Georgia, serif;
+}
+
+header {
+    background: var(--azul);
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    border-bottom: 7px solid var(--dorado);
+}
+
+.kicker {
+    font: bold 12px Arial;
+    letter-spacing: 3px;
+    color: #f2d99f;
+}
+
+h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    margin: 12px 0 5px;
+}
+
+header p {
+    font: 15px Arial;
+}
+
+main {
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 0 16px 40px;
+}
+
+.panel {
+    background: var(--papel);
+    border: 1px solid #e5d8c2;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 10px 28px #24334212;
+}
+
+.tag {
+    display: inline-block;
+    background: #f0e1bf;
+    color: #604b25;
+    border-radius: 30px;
+    padding: 7px 12px;
+    font: bold 11px Arial;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: var(--azul);
+    font-size: clamp(24px, 4vw, 34px);
+}
+
+.intro {
+    font: 16px/1.6 Arial;
+}
+
+button {
+    border: 0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font: bold 15px Arial;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--dorado);
+}
+
+.primary {
+    background: var(--rojo);
+    color: white;
+}
+
+.choice {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #f2eadb;
+    color: var(--texto);
+    border: 1px solid #e0d2ba;
+    margin: 10px 0;
+    padding: 16px;
+    line-height: 1.5;
+}
+
+.choice:hover {
+    background: #eadbbf;
+}
+
+.choice strong {
+    display: block;
+    color: var(--azul);
+    margin-bottom: 5px;
+}
+
+.choice:disabled {
+    cursor: default;
+    opacity: .65;
+}
+
+.topline {
+    display: flex;
+    justify-content: space-between;
+    font: bold 12px Arial;
+    color: #617080;
+    text-transform: uppercase;
+}
+
+.track {
+    height: 9px;
+    background: #e9dfce;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 15px 0 25px;
+}
+
+.fill {
+    height: 100%;
+    width: 0;
+    background: var(--verde);
+    transition: .3s;
+}
+
+.scene-icon {
+    font-size: 45px;
+    margin: 12px 0;
+}
+
+.feedback {
+    background: #edf2e9;
+    border-left: 5px solid var(--verde);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font: 15px/1.5 Arial;
+}
+
+.feedback.bad {
+    background: #f7ece7;
+    border-color: var(--rojo);
+}
+
+.stamp {
+    display: inline-block;
+    border: 2px solid var(--rojo);
+    color: var(--rojo);
+    padding: 7px 12px;
+    transform: rotate(-3deg);
+    font: bold 12px Arial;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tile {
+    background: #f2eadb;
+    border: 1px solid #dfd1b8;
+    padding: 14px;
+    border-radius: 10px;
+    font: 14px Arial;
+}
+
+.tile b {
+    display: block;
+    color: var(--rojo);
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.result {
+    font: bold 21px Arial;
+    color: var(--verde);
+    margin: 15px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width: 520px) {
+    .panel {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="kicker">
+        JUEGO HISTÓRICO INTERACTIVO · 1934–1940
+    </div>
+
+    <h1>MISIÓN 1938</h1>
+
+    <p>
+        Una nación en transformación:
+        ¿qué decisiones construirán el México del futuro?
+    </p>
+</header>
+
+<main>
+
+<!-- INICIO -->
+
+<section class="panel" id="start">
+
+    <span class="tag">
+        Expediente confidencial · Palacio Nacional
+    </span>
+
+    <div class="scene-icon"> Querido consejo:</div>
+
+    <h2>El país necesita un rumbo</h2>
+
+    <p class="intro">
+        México acaba de salir de años de conflicto.
+        Hay desigualdad, comunidades campesinas sin tierra
+        y recursos estratégicos en manos de empresas privadas,
+        algunas extranjeras.
+    </p>
+
+    <p class="intro">
+        Estamos en el periodo presidencial de
+        <b>Lázaro Cárdenas del Río (1934–1940).</b>
+    </p>
+
+    <p class="intro">
+        Tu y el resto del grupo será el
+        <b>Consejo de Reconstrucción Nacional.</b>
+        Deberán resolver diez misiones inspiradas
+        en los acontecimientos más importantes
+        del cardenismo.
+    </p>
+
+    <p class="intro">
+        Cada decisión tendrá una consecuencia.
+        ¿Podrás transformar el futuro de México?
+    </p>
+
+    <button class="primary" onclick="begin()">
+        INICIAR LA MISIÓN →
+    </button>
+
+</section>
+
+
+<!-- JUEGO -->
+
+<section class="panel hidden" id="game">
+
+    <div class="topline">
+        <span id="chapter">ARCHIVO 01 / 10</span>
+        <span id="score">Sellos: 0</span>
+    </div>
+
+    <div class="track">
+        <div class="fill" id="fill"></div>
+    </div>
+
+    <span class="tag" id="tag"></span>
+
+    <div class="scene-icon" id="emoji"></div>
+
+    <h2 id="question"></h2>
+
+    <p class="intro" id="story"></p>
+
+    <div id="choices"></div>
+
+    <div id="feedback" class="feedback hidden"
+         aria-live="polite"></div>
+
+    <button class="primary hidden"
+            id="next"
+            onclick="advance()">
+        CONTINUAR →
+    </button>
+
+</section>
+
+
+<!-- RESULTADO FINAL -->
+
+<section class="panel hidden" id="end">
+
+    <span class="stamp">MISIÓN CUMPLIDA</span>
+
+    <div class="scene-icon">🏛️</div>
+
+    <h2>¡El expediente de México está completo!</h2>
+
+    <p class="intro" id="ending"></p>
+
+    <div class="result" id="finalscore"></div>
+
+    <div class="timeline">
+
+        <div class="tile">
+            <b>1934</b>
+            Inicia la presidencia de Lázaro Cárdenas.
+        </div>
+
+        <div class="tile">
+            <b>1936</b>
+            Se crea la CTM.
+        </div>
+
+        <div class="tile">
+            <b>1937</b>
+            Nacionalización de los ferrocarriles.
+        </div>
+
+        <div class="tile">
+            <b>1938</b>
+            Expropiación petrolera, 18 de marzo.
+        </div>
+
+        <div class="tile">
+            <b>1938</b>
+            Se crea PEMEX, el 7 de junio.
+        </div>
+
+        <div class="tile">
+            <b>1940</b>
+            Termina el gobierno cardenista.
+        </div>
+
+    </div>
+
+    <p>
+        <b>Idea clave:</b>
+        El cardenismo fortaleció la participación del Estado
+        en la economía, impulsó el reparto agrario,
+        la educación y la soberanía nacional.
+    </p>
+
+    <button class="primary" onclick="location.reload()">
+        JUGAR DE NUEVO ↻
+    </button>
+
+</section>
+
+</main>
+
+
+<script>
+
+// DIEZ MISIONES HISTÓRICAS
+
+const scenes = [
+
+{
+tag: "01 · México postrevolucionario",
+title: "Un país que necesita reconstruirse",
+
+story: "Después de la Revolución Mexicana, el país enfrentaba problemas económicos, desigualdad social y conflictos políticos. ¿Cuál era una de sus principales necesidades?",
+
+choices: [
+[
+"Reconstruir las instituciones y recuperar la estabilidad",
+"Correcto. Después de la Revolución, México necesitaba reorganizar su gobierno, fortalecer sus instituciones y atender los problemas sociales y económicos.",
+true
+],
+[
+"Abandonar las actividades agrícolas",
+"La agricultura era fundamental para la economía mexicana y necesitaba recuperarse.",
+false
+],
+[
+"Eliminar todas las instituciones del país",
+"El objetivo era fortalecer y organizar las instituciones, no eliminarlas.",
+false
+]
+]
+},
+
+{
+tag: "02 · El cardenismo",
+title: "¿Qué fue el cardenismo?",
+
+story: "Hace tiempo llegó a la presidencia un militar y político que impulsó importantes transformaciones sociales y económicas. ¿En que año fue?",
+
+choices: [
+[
+"1810",
+"Creo que confundiste la fecha con el inicio de la independencia",
+false
+],
+[
+"1934",
+"¡Correcto! Fue el periodo de transformaciones políticas, económicas y sociales durante la presidencia de Lázaro Cárdenas",
+true
+],
+[
+"1862",
+"Me parece que esa fue la fecha de la batalla de puebla con el ejercito frances.",
+false
+]
+]
+},
+
+{
+tag: "03 · El personaje principal",
+emoji: "👤",
+title: "¿Quién fue Lázaro Cárdenas?",
+
+story: "Fue uno de los presidentes más importantes de la historia de México. Sus decisiones transformaron la economía y la sociedad. ¿Cuál era su nombre completo?",
+
+choices: [
+[
+"Lázaro Cárdenas del Río",
+"¡Exactamente! Fue militar y político mexicano, presidente de México entre 1934 y 1940. Nació el 21 de mayo de 1895 en Jiquilpan, Michoacán.",
+true
+],
+[
+"Lázaro Cárdenas del Valle",
+"Su segundo apellido es -del Rio-.Cuidado con la dislexia.",
+false
+],
+[
+"Lázaro Cárdona del Arroyo",
+"Su primer apellido es -Cardenas-, mientras que su segundo apellido es -del Rio-.Cuidado con la dislexia.",
+false
+]
+]
+},
+
+{
+tag: "04 · Justicia agraria",
+emoji: "🌾",
+title: "La tierra para los campesinos",
+
+story: "Muchos campesinos no tenían tierras propias para trabajar. Cárdenas impulsó una de las reformas agrarias más importantes del país. ¿En qué consistió?",
+
+choices: [
+[
+"En repartir tierras y fortalecer los ejidos",
+"¡Correcto! El reparto agrario permitió que numerosos campesinos recibieran tierras para trabajarlas mediante el sistema ejidal.",
+true
+],
+[
+"En quitarles las tierras a todos los campesinos",
+"El objetivo de la reforma agraria era atender las demandas campesinas y facilitar el acceso a la tierra.",
+false
+],
+[
+"En prohibir la producción agrícola",
+"La agricultura era una actividad fundamental para el desarrollo económico.",
+false
+]
+]
+},
+
+{
+tag: "05 · Nacionalismo mexicano",
+title: "Defender los recursos de México",
+
+story: "El nacionalismo cardenista buscaba fortalecer la identidad nacional y defender los recursos naturales. ¿Qué significa tener soberanía económica?",
+
+choices: [
+[
+"Dejar de producir y comercializar productos mexicanos",
+"El desarrollo económico buscaba fortalecer la producción nacional.",
+false
+],
+[
+"Depender completamente de empresas extranjeras",
+"Esta idea contradice el objetivo de fortalecer la independencia económica nacional.",
+false
+],
+[
+"Que México tenga mayor control sobre sus recursos y decisiones económicas",
+"¡Correcto! Se buscaba que los recursos estratégicos beneficiaran al país y que México tuviera mayor independencia económica.",
+true
+]
+]
+},
+
+{
+tag: "06 · Los trabajadores",
+title: "La fuerza de los trabajadores",
+
+story: "Durante el cardenismo se fortalecieron las organizaciones obreras. En 1936 se creó una organización muy importante para representar a los trabajadores. ¿Cuál fue?",
+
+choices: [
+[
+"PEMEX",
+"PEMEX fue creada en 1938 para administrar la industria petrolera nacional.",
+false
+],
+[
+"CTM (Confederación de Trabajadores de México)",
+"¡Correcto! Se fundó en 1936 y ayudó a organizar y representar a los trabajadores mexicanos.",
+true
+],
+[
+"Banco de México",
+"Esta institución fue fundada en 1925.",
+false
+]
+]
+},
+
+{
+tag: "07 · Transporte nacional",
+title: "Los ferrocarriles mexicanos",
+
+story: "En 1937 el gobierno tomó una decisión importante sobre los ferrocarriles, buscando fortalecer el control nacional sobre este medio de transporte. ¿Qué hizo?",
+
+choices: [
+[
+"Nacionalizó los ferrocarriles",
+"¡Muy bien! En 1937 el gobierno nacionalizó los ferrocarriles, aumentando la participación del Estado en este sector estratégico.",
+true
+],
+[
+"Eliminó todas las vías ferroviarias",
+"El transporte ferroviario continuó siendo importante para la economía y la comunicación.",
+false
+],
+[
+"Prohibió el transporte de mercancías",
+"Los ferrocarriles eran fundamentales para transportar productos y conectar regiones.",
+false
+]
+]
+},
+
+{
+tag: "08 · Expropiación petrolera",
+title: "La decisión histórica de 1938",
+
+story: "El 18 de marzo de 1938, Lázaro Cárdenas anunció una decisión histórica relacionada con las compañías petroleras que operaban en México. ¿Qué ocurrió?",
+
+choices: [
+[
+"La privatización del petróleo mexicano",
+"La decisión fue fortalecer el control de la nación sobre la industria petrolera.",
+false
+],
+[
+"La eliminación de la industria petrolera",
+"La industria continuó funcionando bajo una nueva organización nacional.",
+false
+],
+[
+"La expropiación petrolera",
+"¡Correcto! Cárdenas decretó la expropiación de los bienes de las compañías petroleras. Fue un símbolo de soberanía nacional.",
+true
+]
+]
+},
+
+{
+tag: "09 · PEMEX",
+title: "Una nueva institución nacional",
+
+story: "Después de la expropiación petrolera, México necesitaba organizar y administrar la industria. ¿Qué empresa se creó el 7 de junio de 1938?",
+
+choices: [
+[
+"IMSS",
+"El Instituto Mexicano del Seguro Social se creó en 1943.",
+false
+],
+[
+"PEMEX (Petróleos Mexicanos)",
+"¡Correcto! PEMEX se creó para hacerse cargo de la industria petrolera nacional.",
+true
+],
+[
+"CTM",
+"La Confederación de Trabajadores de México se había fundado en 1936.",
+false
+]
+]
+},
+
+{
+tag: "10 · Educación y legado",
+title: "El legado del cardenismo",
+
+story: "Además de sus reformas económicas, Cárdenas impulsó la educación pública, especialmente en comunidades rurales. ¿Cuál fue uno de los principales objetivos de estas acciones?",
+
+choices: [
+[
+"Ampliar el acceso a la educación y reducir las desigualdades",
+"¡Excelente! La educación pública y rural fue una herramienta para ampliar oportunidades y apoyar la transformación social.",
+true
+],
+[
+"Impedir que los niños de comunidades rurales estudiaran",
+"El gobierno buscó ampliar las oportunidades educativas en las comunidades rurales.",
+false
+],
+[
+"Eliminar la educación pública",
+"El cardenismo impulsó la educación pública como parte de sus reformas sociales.",
+false
+]
+]
+}
+
+];
+
+
+// VARIABLES
+
+let current = 0;
+let score = 0;
+let locked = false;
+
+
+// INICIAR JUEGO
+
+function begin() {
+
+    document.getElementById("start").classList.add("hidden");
+
+    document.getElementById("game").classList.remove("hidden");
+
+    render();
+
+}
+
+
+// MOSTRAR PREGUNTA
+
+function render() {
+
+    locked = false;
+
+    let s = scenes[current];
+
+    document.getElementById("chapter").textContent =
+        `ARCHIVO ${String(current + 1).padStart(2, "0")} / 10`;
+
+    document.getElementById("score").textContent =
+        `Sellos: ${score}`;
+
+    document.getElementById("fill").style.width =
+        (current / scenes.length * 100) + "%";
+
+    document.getElementById("tag").textContent = s.tag;
+
+    document.getElementById("emoji").textContent = s.emoji;
+
+    document.getElementById("question").textContent = s.title;
+
+    document.getElementById("story").textContent = s.story;
+
+    document.getElementById("feedback").classList.add("hidden");
+
+    document.getElementById("next").classList.add("hidden");
+
+    let container = document.getElementById("choices");
+
+    container.innerHTML = "";
+
+    s.choices.forEach((ch, i) => {
+
+        let button = document.createElement("button");
+
+        button.className = "choice";
+
+        button.innerHTML = `
+            <strong>${String.fromCharCode(65 + i)}. ${ch[0]}</strong>
+            <span>Elegir esta decisión</span>
+        `;
+
+        button.onclick = () => choose(i);
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+// EVALUAR RESPUESTA
+
+function choose(i) {
+
+    if (locked) return;
+
+    locked = true;
+
+    let s = scenes[current];
+
+    let ch = s.choices[i];
+
+    if (ch[2]) {
+        score++;
+    }
+
+    document.getElementById("score").textContent =
+        `Sellos: ${score}`;
+
+    let feedback = document.getElementById("feedback");
+
+    feedback.className = "feedback";
+
+    if (!ch[2]) {
+        feedback.classList.add("bad");
+    }
+
+    feedback.innerHTML = `
+        <b>${ch[2]
+            ? "✦ ¡Sello conseguido!"
+            : "Respuesta incorrecta"
+        }</b>
+        <br><br>
+        ${ch[1]}
+    `;
+
+    feedback.classList.remove("hidden");
+
+    document.querySelectorAll(".choice").forEach(button => {
+        button.disabled = true;
+    });
+
+    document.getElementById("next").classList.remove("hidden");
+
+}
+
+
+// SIGUIENTE PREGUNTA
+
+function advance() {
+
+    current++;
+
+    if (current < scenes.length) {
+
+        render();
+
+    } else {
+
+        finish();
+
+    }
+
+}
+
+
+// RESULTADO FINAL
+
+function finish() {
+
+    document.getElementById("game").classList.add("hidden");
+
+    document.getElementById("end").classList.remove("hidden");
+
+    document.getElementById("fill").style.width = "100%";
+
+    document.getElementById("finalscore").textContent =
+        `Sellos obtenidos: ${score} de 10`;
+
+    document.getElementById("ending").textContent =
+
+        score >= 8
+
+        ? "¡Excelente trabajo! Su consejo comprendió los principales acontecimientos y transformaciones del cardenismo. México logró importantes cambios sociales, económicos y políticos durante este periodo."
+
+        : "Su consejo ha completado las diez misiones. Ahora conoce mejor los cambios que impulsó Lázaro Cárdenas y la importancia del nacionalismo, la soberanía económica y la justicia social.";
+
+}
+
+</script>
+
+</body>
+</html>
